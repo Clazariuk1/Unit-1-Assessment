@@ -7,10 +7,10 @@ function createCounter() {
   let count = 0;
 
   return function (action) {
-    if (action === "increment") {
-      count ++ //parseInt(counterValue.textContent)
-    } else if (action === "decrement") {
-      count -- //parseInt(counterValue.textContent)
+    if (action === "add") {
+      count += parseInt(counterValue.value)
+    } else if (action === "subtract") {
+      count -= parseInt(counterValue.value)
     }
     return count
   }
@@ -19,11 +19,11 @@ function createCounter() {
 const counter = createCounter();
 
 incrementBtn.addEventListener("click", () => {
-  displayValue.textContent = counter("increment")
+  displayValue.textContent = counter("add")
 })
 
 decrementBtn.addEventListener("click", () => {
-  displayValue.textContent = counter("decrement")
+  displayValue.textContent = counter("subtract")
 })
 
 document.addEventListener("click", () => {
